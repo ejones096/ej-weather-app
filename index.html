@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>☀️Weather App🌧</title>
+    <meta charset="UTF-8" />
+    <link href="src/styles.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Special+Elite&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="card" style="max-width: 900px">
+        <div class="card-header">
+            <form class="search-location" style=" display: block; margin: 0 auto" id="search-input">
+                <input type="text" class="search-input" id="search-city-input" placeholder="Enter your location" style="width: 350px">
+                <input type="submit" class="search-button" id="search-button" value="Search">
+                <input type="button" class="search-button" id="location-button" value="My current location">
+            </form>
+  
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-8">
+                  <h2 id="city">Boston, MA</h2>
+                  <p id="date">Tuesday, November 1</p>
+                  <p id="weather">Partly, cloudy</p>
+              </div>
+                <div class="col-4">
+                  <h3 id="temp"></h3>
+                </div>
+               
+                <hr />
+
+          <div class="row">
+            <div class="col">
+              <h3> 🌧 </h3>
+              Monday
+              <div class="temperature"> 61°F </div>
+            </div>
+            <div class="col">
+              <h3> 🌧 </h3>
+              Tuesday
+              <div class="temperature"> 62°F </div>
+            </div>
+            <div class="col">
+                <h3> ☀️ </h3>
+              Wednesday
+              <div class="temperature"> 57°F </div>
+            </div>
+            <div class="col">
+                <h3> ☀️ </h3>
+             Thursday
+              <div class="temperature"> 56°F </div>
+            </div>
+            <div class="col">
+                <h3> 🌤 </h3>
+              Friday
+              <div class="temperature"> 61°F </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js">
+    </script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: #896a67;
+  }
+  li {
+    list-style: none;
+    margin-left: 0px;
+  }
+  .card {
+    background-color: white;
+    margin: 20px 0px 20px 0px;
+    display: block;
+  }
+  .card-header {
+    display: block;
+    background-color: #896a67;
+  }
+  .search-input {
+    border-radius: 15px;
+    font-size: 16px;
+    line-height: 10px;
+    padding: 10px 15px;
+  }
+  .search-button {
+    border-radius: 15px;
+    color: #fff;
+    background-color: #73956f;
+    font-size: 16px;
+    line-height: 10px;
+    padding: 10px 15px;
+    transition: all 200ms ease;
+    box-shadow: 2px 2px 2px #2f2423;
+  }
+  h1 {
+    color: #896a67;
+    font-weight: bold;
+  }
+  h2 {
+    color: #2f2423;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 40px;
+  }
+  h3 {
+    color: #896a67;
+    font-weight: bold;
+    font-size: 60px;
+  }
+  p {
+    color: #2f2423;
+    line-height: 10px;
+  }
+  .col {
+    text-align: center;
+  }
+  .temperature {
+    font-size: 40px;
+    color: #2f2423;
+    text-align: center;
+  }
+  
