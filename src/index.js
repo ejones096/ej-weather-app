@@ -50,7 +50,7 @@ currentLocationButton.addEventListener("click", getCurrentPosition);
 // API search
 function apiSearch(city) {
   let units = "imperial";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(displayWeatherCondition);
 }
 
@@ -59,10 +59,9 @@ function showPosition(position) {
   let myLatitude = position.coords.latitude;
   let myLongitude = position.coords.longitude;
   let units = "imperial";
-
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${myLatitude}&lon=${myLongitude}&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(displayWeatherCondition);
-}
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${myLatitude}&lon=${myLongitude}&key=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayWeatherCondition); 
+  }
 
 function getCurrentPosition(event) {
   event.preventDefault();
