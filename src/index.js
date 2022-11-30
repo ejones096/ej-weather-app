@@ -84,19 +84,18 @@ function displayWeatherCondition(response) {
   humidity.innerHTML = response.data.main.humidity;
   let wind = document.querySelector("#wind");
   wind.innerHTML = Math.round(response.data.wind.speed);
-}
-
-//Display icon
-let icon = document.querySelector("#icon");
-document
-  .querySelector("icon")
-  .setAttribute(
+ 
+  //Display icon
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+}
 
 //Unit conversion
-fuction displayFahrenheitTemp(event) {
+function displayFahrenheitTemp(event) {
   event.preventDefault();
   let temperature = document.querySelector("#temperature");
 
@@ -122,3 +121,4 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 let celsiusLink = document.querySelector("celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemp);
 
+searchCity("Boston");
