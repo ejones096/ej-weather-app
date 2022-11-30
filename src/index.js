@@ -29,7 +29,6 @@ let dateElement = document.querySelector("#date");
 let currentTime = new Date();
 dateElement.innerHTML = formatDate(currentTime);
 
-
 // Search
 function search(event) {
   event.preventDefault();
@@ -65,11 +64,11 @@ function showPosition(position) {
   axios.get(apiUrl).then(displayWeatherCondition);
 }
 
-
 function getCurrentPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPosition);
 }
+
 function displayWeatherCondition(response) {
   let tempNow = Math.round(response.data.main.temp);
   let temp = document.querySelector("#temp");
@@ -121,4 +120,4 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 let celsiusLink = document.querySelector("celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemp);
 
-searchCity("Boston");
+apiSearch("London");
