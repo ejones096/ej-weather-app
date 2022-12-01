@@ -58,6 +58,12 @@ body {
     color: #2f2423;
     text-align: center;
   }
+
+
+.weather-temperature {
+  position: relative;
+}
+
   .weather-temperature .active {
     color: black;
     cursor: default;
