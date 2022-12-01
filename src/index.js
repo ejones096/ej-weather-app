@@ -96,28 +96,28 @@ function displayWeatherCondition(response) {
 //Unit conversion
 function displayFahrenheitTemp(event) {
   event.preventDefault();
-  let temperature = document.querySelector("#temperature");
+  let temperature = document.querySelector("#temp");
 
-  celciusLink.classList.remove("active");
-  fahrenheitLink.classLink.add("active");
-  let fahrenheitTemp = (celsiusTemperature * 9) / 5 + 32;
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
   temperature.innerHTML = Math.round(fahrenheitTemp);
 }
 
 function displayCelsiusTemp(event) {
-  event.preventDefault ();
-  celciusLink.classList.add("active");
-  fahrenheitLink.classLink.remove("active");
-  let temperature = document.querySelector("temperature");
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperature = document.querySelector("#temp");
   temperature.innerHTML = Math.round(celsiusTemp);
 }
 
 let celsiusTemp = null;
 
-let fahrenheitLink = document.querySelector("fahrenheit-link");
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 
-let celsiusLink = document.querySelector("celsius-link");
+let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemp);
 
 apiSearch("London");
