@@ -48,6 +48,7 @@ body {
     color: #896a67;
     font-weight: bold;
     font-size: 150px;
+    line-height: 1;
   }
 
   p {
@@ -69,7 +70,7 @@ body {
   }
 
 .weather-temperature {
-  position: center;
+  position: relative;
 }
 
   .weather-temperature .active {
@@ -82,3 +83,20 @@ body {
     text-decoration: none;
   }
 
+  .forecast-card {
+    border: none;
+    text-align: center;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    color: slategray;
+  }
+  
+  .forecast-day-title {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .forecast-min-temp {
+    color: lightgray;
+  }

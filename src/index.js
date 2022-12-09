@@ -69,6 +69,17 @@ function getCurrentPosition(event) {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
+//5 Day Forecast
+function getForecast(coordinates) {
+  let forecastApiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(forecastApiUrl).then(displayForecast);
+}
+
+function getUpdatedForecastUnits(coordinates) {
+  let forecastApiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
+  axios.get(forecastApiUrl).then(displayForecast);
+}
+
 function displayWeatherCondition(response) {
   let tempNow = Math.round(response.data.main.temp);
   let temp = document.querySelector("#temp");
@@ -83,6 +94,8 @@ function displayWeatherCondition(response) {
   humidity.innerHTML = response.data.main.humidity;
   let wind = document.querySelector("#wind");
   wind.innerHTML = Math.round(response.data.wind.speed);
+
+  getForecast(response.data.coord);
  
   //Display icon
   let iconElement = document.querySelector("#icon");
@@ -121,3 +134,67 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemp);
 
 apiSearch("London");
+
+// Format Forecast Last Updated Day/Time and Forecast Day Functions
+
+function formatDay(timestamp) {
+  let milliseconds = new Date(timestamp * 1000);
+  let day =  milliseconds.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
+function formatLastUpdatedTime(timestamp, timezone) {
+  let timestampMilliseconds = timestamp * 1000;
+  let timezoneMilliseconds = timezone * 1000;
+  let localTimestamp = new Date(timestampMilliseconds + timezoneMilliseconds);
+
+  let dayIndex = localTimestamp.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let day = days[dayIndex];
+
+  let hours = localTimestamp.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let mins = localTimestamp.getMinutes();
+  if (mins < 10) {
+    mins = `0${mins}`;
+  }
+  let time = `${hours}:${hours}`
+  return `${day} ${time}`;
+}
+
+// Display Forecast function
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML += `
+    
+    
+   <div class="col-6 col-md-2">
+          <div class="card forecast-card">
+            <span class="forecast-day-title">${formatDay(forecastDay.dt)}</span>
+            <img src="https://openweathermap.org/img/wn/${
+              forecastDay.weather[0].icon
+            }@2x.png" alt="forecast-icon">
+            <div class="forecast-temps">
+              <span class="forecast-max-temp">high: ${Math.round(
+                forecastDay.temp.max
+              )}°</span> <br /> <span class="forecast-min-temp">low: ${Math.round(
+        forecastDay.temp.min
+      )}°</span>
+            </div>
+          </div>
+        </div>`;
+    }
+  });
+
+  forecastHTML += `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
