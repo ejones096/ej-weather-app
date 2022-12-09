@@ -23,9 +23,9 @@
   </head>
   <body>
     <div class="container">
-      <div class="card" style="max-width: 900px">
+      <div class="card" style="max-width: 900px; margin: auto;" >
         <div class="card-header">
-            <form class="search-location" style=" display: block; margin: 0 auto" id="search-input">
+            <form class="search-location" style="display: block; margin: 0 auto" id="search-input">
                 <input type="text" class="search-input" id="search-city-input" placeholder="Enter your location" style="width: 350px">
                 <input type="submit" class="search-button" id="search-button" value="Search">
                 <input type="button" class="search-button" id="location-button" value="My current location">
@@ -46,44 +46,21 @@
               </div>
                 <div class="col-4">
                   <span class="weather-temperature">
-                    <h3 id="temp"></h3> 
-                    <span class="units"><a href="#" id="celsius-link" class="active"> °C </a> | <a href="#" id="fahrenheit-link"> °F</a> </span>
-             </span>            
+                    <span id="temp"></span> 
+                    <span class="units align-top"><a href="#" id="celsius-link" class="active"> °C </a> | <a href="#" id="fahrenheit-link"> °F</a> </span>
+                   </span>            
                 </div>
                 <hr />
 
               
-          <div class="row">
-            <div class="col">
-              <h2> 🌧 </h2>
-              Monday
-              <div class="temperature"> 61°F </div>
-            </div>
-            <div class="col">
-              <h2> 🌧 </h2>
-              Tuesday
-              <div class="temperature"> 62°F </div>
-            </div>
-            <div class="col">
-                <h2> ☀️ </h2>
-              Wednesday
-              <div class="temperature"> 57°F </div>
-            </div>
-            <div class="col">
-                <h2> ☀️ </h2>
-             Thursday
-              <div class="temperature"> 56°F </div>
-            </div>
-            <div class="col">
-                <h2> 🌤 </h2>
-              Friday
-              <div class="temperature"> 61°F </div>
+          <div class="forecast-row">
+            <div class="weather-forecast" id="forecast"></div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <p><a href="https://github.com/ejones096/ej-weather-app">Open Sourced Code</a>, by E. Jones</p>
+    <div class="github" style="color: white;"><a href="https://github.com/ejones096/ej-weather-app">Open Sourced Code</a>, by E. Jones</div>
     <script src="src/index.js">
     </script>
   </body>
