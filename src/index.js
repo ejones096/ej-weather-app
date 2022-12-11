@@ -81,7 +81,9 @@ function getUpdatedForecastUnits(coordinates) {
 }
 
 function displayWeatherCondition(response) {
+  
   let tempNow = Math.round(response.data.main.temp);
+  celsiusTemp = Math.round(response.data.main.temp);
   let temp = document.querySelector("#temp");
   temp.innerHTML = `${tempNow}`;
   let city = document.querySelector("#city");
@@ -186,9 +188,9 @@ function displayForecast(response) {
             <div class="forecast-temps">
               <span class="forecast-max-temp">high: ${Math.round(
                 forecastDay.temp.max
-              )}°</span> <br /> <span class="forecast-min-temp">low: ${Math.round(
+              )}°C</span> <br /> <span class="forecast-min-temp">low: ${Math.round(
         forecastDay.temp.min
-      )}°</span>
+      )}°C</span>
             </div>
           </div>
         </div>`;
